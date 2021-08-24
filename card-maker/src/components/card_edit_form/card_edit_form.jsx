@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import Button from '../button/button';
-import ImageFileInput from '../image_file_input/image_file_input';
 import styles from './card_edit_form.module.css';
 const CardEditForm = ({ card, updateCard, deleteCard, FileInput }) => {
   const nameRef = useRef();
@@ -10,8 +9,7 @@ const CardEditForm = ({ card, updateCard, deleteCard, FileInput }) => {
   const emailRef = useRef();
   const messageRef = useRef();
 
-  const { name, company, title, email, message, theme, fileName, fileURL } =
-    card;
+  const { name, company, title, email, message, theme, fileName } = card;
 
   const onSubmit = () => {
     deleteCard(card);
@@ -29,7 +27,7 @@ const CardEditForm = ({ card, updateCard, deleteCard, FileInput }) => {
     if (event.currentTarget == null) {
       return;
     }
-    console.log(event.currentTarget);
+
     event.preventDefault();
     updateCard({
       ...card,
